@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CreateController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CreateController extends Controller
      */
     public function index()
     {
-        return redirect('resource.create');
-    }
+        return view('resource.Dashboard');
+        }
 
     /**
      * Show the form for creating a new resource.
