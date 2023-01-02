@@ -6,17 +6,17 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dashboard extends Model
+class produk extends Model
 {
     use HasFactory;
 
     
-    protected $table='Dashboard';
+    protected $table='product';
     protected $fillable = [
         'tanggal',
         'requester',
         'foto',
-        'barang',
+      
         'deskripsi',
         'barangmasuk',
     ];

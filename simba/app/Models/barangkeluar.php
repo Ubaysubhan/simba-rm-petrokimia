@@ -2,24 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dashboard extends Model
+class barangkeluar extends Model
 {
     use HasFactory;
-
-    
-    protected $table='Dashboard';
+    protected $table='barangkeluar';
     protected $fillable = [
         'tanggal',
         'requester',
-        'foto',
-        'barang',
-        'deskripsi',
-        'barangmasuk',
+       'keperluan',
+       'provinsi',
+        'kotakab',
+       'jumlahbarang',
     ];
-    
-
 }
+

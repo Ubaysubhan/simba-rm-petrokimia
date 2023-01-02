@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Resource\BarangmasukController;
+use App\Http\Controllers\Resource\BarangkeluarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Resource\loginController;
 use App\Http\Controllers\DashboardController;
@@ -18,9 +20,12 @@ Route::get('/', [DashboardController::class,'index']);
 
 // Route::get('/produk', [ProdukController::class,'index']);
 // Route::get('/produk',[ProdukController::class,'index'])->name('produk')->middleware('guest');
-// Route::resource('/produk',ProdukController::class)->name('produk.store');
-Route::get('/produk', [ProdukController::class,'index']);
-Route::post('/produk', [ProdukController::class,'store'])->name('produk.store');
+Route::resource('/produk', ProdukController::class);
+Route::resource('/BarangMasuk', BarangmasukController::class);
+Route::resource('/BarangKeluar', BarangkeluarController::class);
+
+// Route::get('/produk', [ProdukController::class,'index']);
+// Route::post('/produk', [ProdukController::class,'store'])->name('produk.store');
 
 
 
@@ -29,14 +34,6 @@ Route::get('/history', function () {
     return view('resource.history');
 });
 
-
-Route::get('/BarangMasuk', function () {
-    return view('resource.masuk');
-});
-
-Route::get('/BarangKeluar', function () {
-    return view('resource.keluar');
-});
 
 Route::get('/Admin', function () {
     return view('resource.DashboardAdmin');

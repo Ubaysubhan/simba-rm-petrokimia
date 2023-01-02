@@ -9,8 +9,8 @@
         </div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <button type="button"
-                class="inline-flex items-center justify-center rounded-md border border-transparent bg-yellow-400 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add
-                user</button>
+                class="inline-flex  items-center justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium  text-white bg-yellow-400 hover:bg-yellow-800 duration-300 hover:scale-110 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add
+                Product</button>
         </div>
     </div>
     <div class="mt-8 flex flex-col content-center max-w-8xl">
@@ -35,6 +35,10 @@
                                 <th scope="col"
                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">Jumlah
                                     Sisa Barang</th>
+                                <th scope="col"
+                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
+                                    History Barang</th>
+
 
 
 
@@ -46,42 +50,38 @@
                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
                                     Lindsay Walton </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Front-end
-                                    Developer <button type="button"
-                                        class="text-white ml-3 bg-blue-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">Icon description</span>
-                                    </button></td>
+                                    Developer </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">
                                     lindsay.walton@example.com
-                                    <button type="button"
-                                        class="text-white ml-3 bg-green-400 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">Icon description</span>
-                                    </button>
+                                    <a href="/BarangMasuk"> <button type="button"
+                                            class="ml-3 transition ease-in-out delay-150 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 duration-300 hover:scale-110 hover:-translate-y-1  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <svg aria-hidden=" true" class="w-3 h-3" fill="currentColor"
+                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span class="sr-only">Icon description</span>
+                                        </button>
+                                    </a>
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Front-end
                                     Developer
-                                    <button type="button"
-                                        class="text-white ml-3 bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="sr-only">Icon description</span>
-                                    </button>
+                                    <a href="/BarangKeluar">
+                                        <button type="button"
+                                            class="ml-3 transition ease-in-out delay-150 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-900 duration-300 hover:scale-110 hover:-translate-y-1  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <svg aria-hidden="true" class="w-3 h-3" fill="currentColor"
+                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                            <span class="sr-only">Icon description</span>
+                                        </button>
+                                    </a>
                                 </td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Front-end
+                                    Developer</td>
                                 <td
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-6 text-center">
                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">History<span
@@ -98,11 +98,14 @@
                                     lindsay.walton@example.com</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Front-end
                                     Developer</td>
+                                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">Front-end
+                                    Developer </td>
                                 <td
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-6 text-center">
                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">History<span
                                             class="sr-only"></span></a>
                                 </td>
+
                             </tr>
 
                             <tr class="hover:bg-gray-100">

@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers\Resource;
 
-
-use App\Models\produk;
-use App\Models\User;
 use App\Http\Controllers\Controller;
-use App\Models\Dashboard;
+use App\Models\barangmasuk;
+use App\Http\Requests\StorebarangmasukRequest;
+use App\Http\Requests\UpdatebarangmasukRequest;
 use Illuminate\Http\Response;
 // use Illuminate\Http\Request;
 use Illuminate\Http\Request;
 
-class ProdukController extends Controller
+
+class BarangmasukController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        return view('resource.produk');
+        return view('resource.masuk');
 
     }
 
@@ -30,28 +29,26 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        // return redirect ('/produk');
-       
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StorebarangmasukRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $barang =new produk();
+        
+        $barang =new barangmasuk();
     
-        $barang->tanggal= $request->input('date');
+        $barang->tanggal= $request->input('tanggal');
         $barang->requester = $request->input('requester');
-        $barang->foto = $request->input('foto');
-      
-        $barang->deskripsi = $request->input('deskripsi');
-        $barang->barangmasuk = $request->input('barangmasuk');
+        $barang->jumlahbarang = $request->input('jumlahbarang');
+     
     
         
         $barang->save();
@@ -61,45 +58,45 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(barangmasuk $barangmasuk)
     {
-        // return redirect ('/produk');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(barangmasuk $barangmasuk)
     {
-        // return redirect ('/produk');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdatebarangmasukRequest  $request
+     * @param  \App\Models\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatebarangmasukRequest $request, barangmasuk $barangmasuk)
     {
-        // return redirect ('/produk');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\barangmasuk  $barangmasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(barangmasuk $barangmasuk)
     {
-        // return redirect ('/produk');
+        //
     }
 }
