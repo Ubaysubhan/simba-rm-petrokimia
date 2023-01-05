@@ -5,6 +5,7 @@ use App\Http\Controllers\Resource\BarangkeluarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Resource\loginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\Resource\ProdukController;
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/', [DashboardController::class,'index']);
 // Route::get('/produk', [ProdukController::class,'index']);
 // Route::get('/produk',[ProdukController::class,'index'])->name('produk')->middleware('guest');
 Route::resource('/produk', ProdukController::class);
+route::get('/produk/{produk:id}', [ProdukController::class,'barangmasuk']);
+route::get('/produk/keluar/{produk:id}', [ProdukController::class,'barangkeluar']);
 Route::resource('/BarangMasuk', BarangmasukController::class);
 Route::resource('/BarangKeluar', BarangkeluarController::class);
 
@@ -35,9 +38,7 @@ Route::get('/history', function () {
 });
 
 
-Route::get('/Admin', function () {
-    return view('resource.DashboardAdmin');
-});
+Route::get('/Admin', [DashboardAdminController::class,'index']);
 
 Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [loginController::class, 'authenticate']);

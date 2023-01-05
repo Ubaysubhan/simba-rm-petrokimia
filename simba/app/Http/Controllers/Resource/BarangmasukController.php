@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Models\barangmasuk;
+use App\Models\produk;
 use App\Http\Requests\StorebarangmasukRequest;
 use App\Http\Requests\UpdatebarangmasukRequest;
+
 use Illuminate\Http\Response;
 // use Illuminate\Http\Request;
 use Illuminate\Http\Request;
@@ -18,9 +20,9 @@ class BarangmasukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(produk $produk)
     {
-        return view('resource.masuk');
+        // return view('resource.masuk')->with('produk', $produk);
 
     }
 
@@ -42,17 +44,21 @@ class BarangmasukController extends Controller
      */
     public function store(Request $request)
     {
-        
         $barang =new barangmasuk();
-    
+        $barang->id_product = $request->id_barang;
+
         $barang->tanggal= $request->input('tanggal');
         $barang->requester = $request->input('requester');
         $barang->jumlahbarang = $request->input('jumlahbarang');
-     
-    
+
+        $stuff = produk::where('id',$request->id_barang)->get()->first();
+        $jumlah = $stuff->barangsekarang + $request->jumlahbarang;
+
+        $data['barangsekarang'] = $jumlah;
+        produk::where('id', $request->id_barang)->update($data);
         
         $barang->save();
-        return redirect('/');
+        return redirect('/Admin');
     }
 
     /**

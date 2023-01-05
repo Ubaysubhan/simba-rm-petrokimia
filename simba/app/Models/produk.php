@@ -16,10 +16,17 @@ class produk extends Model
         'tanggal',
         'requester',
         'foto',
-      
+      'barangsekarang',
         'deskripsi',
-        'barangmasuk',
+        'barangawal',
     ];
     
-
+    public function barangmasuk()
+    {
+        return $this->hasMany(barangmasuk::class, 'id_product', 'id');
+    }
+    public function barangkeluar()
+    {
+        return $this->hasMany(barangkeluar::class, 'id_product', 'id');
+    }
 }

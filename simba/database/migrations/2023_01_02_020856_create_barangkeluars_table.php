@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('barangkeluar', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_product')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
             $table->string('tanggal');
             $table->string('requester');
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('kotakab');
             $table->string('jumlahbarang');
+            $table->string('jumlahbarangkeluar');
         });
     }
 

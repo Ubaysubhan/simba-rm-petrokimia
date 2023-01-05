@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DashboardAdmin;
+use App\Http\Requests\StoreDashboardAdminRequest;
+use App\Http\Requests\UpdateDashboardAdminRequest;
+use App\Models\produk;
 use App\Models\barangkeluar;
 use App\Models\barangmasuk;
-use App\Models\produk;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+
+class DashboardAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +23,9 @@ class DashboardController extends Controller
         
         $barang = produk::with(['barangmasuk','barangkeluar'])->get();
     
-        return view('resource.Dashboard')->with('produk',$barang);
+        return view('resource.DashboardAdmin')->with('produk',$barang);
         
-        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,10 +40,10 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreDashboardAdminRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDashboardAdminRequest $request)
     {
         //
     }
@@ -47,10 +51,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\DashboardAdmin  $dashboardAdmin
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DashboardAdmin $dashboardAdmin)
     {
         //
     }
@@ -58,10 +62,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\DashboardAdmin  $dashboardAdmin
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DashboardAdmin $dashboardAdmin)
     {
         //
     }
@@ -69,11 +73,11 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\UpdateDashboardAdminRequest  $request
+     * @param  \App\Models\DashboardAdmin  $dashboardAdmin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDashboardAdminRequest $request, DashboardAdmin $dashboardAdmin)
     {
         //
     }
@@ -81,10 +85,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\DashboardAdmin  $dashboardAdmin
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DashboardAdmin $dashboardAdmin)
     {
         //
     }

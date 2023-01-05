@@ -16,6 +16,11 @@ class barangkeluar extends Model
        'provinsi',
         'kotakab',
        'jumlahbarang',
+       'jumlahbarangkeluar',
     ];
+    public function produk()
+    {
+        return $this->belongsTo(produk::class,'id_product');
+    }
 }
 

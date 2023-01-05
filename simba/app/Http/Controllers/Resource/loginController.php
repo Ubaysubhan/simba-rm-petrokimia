@@ -15,7 +15,6 @@ class loginController extends Controller
 
     public function authenticate(Request $request)
     {
-        
         $credentials = $request->validate([
             'email' => 'required|email:dns',
             'password' => 'required'
@@ -25,14 +24,14 @@ class loginController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/Admin');
         }
-
         return back()->with('loginError', 'Login failed!');
     }
 
     public function logout(Request $request)
     {
+    
         Auth::logout();
 
         $request->session()->invalidate();

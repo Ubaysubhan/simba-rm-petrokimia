@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('requester');
             $table->string('foto');
             $table->string('deskripsi');
-            $table->string('barangmasuk');
+            $table->integer('barangawal');
+            $table->integer('barangsekarang');
         });
        
     }

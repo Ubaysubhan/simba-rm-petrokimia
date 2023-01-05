@@ -5,7 +5,7 @@
 
 
 
-<form method="POST" action="/produk" class="pt-4 max-w-4xl mx-auto my-5 ">
+<form method="POST" action="/produk" class="pt-4 max-w-4xl mx-auto my-5" enctype="multipart/form-data">
     @csrf
     <!-- {{ csrf_field() }} -->
 

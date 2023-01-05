@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<form method="POST" action="/BarangMasuk">
+<form method="POST" action="/BarangMasuk" enctype="multipart/formdata">
     @csrf
     <div class=" space-y-8 divide-y divide-gray-200 max-w-4xl mx-auto my-5 ">
         <div>
@@ -57,7 +57,7 @@
                         <div class="pt-5">
                             <div class="flex justify-end">
 
-                                <button type="submit"
+                                <button type="submit" value="{{$produk->id}}" name="id_barang"
                                     class="ml-3 transition ease-in-out delay-150 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-300 hover:bg-yellow-500 duration-300 hover:scale-110 hover:-translate-y-1  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
                             </div>
                         </div>

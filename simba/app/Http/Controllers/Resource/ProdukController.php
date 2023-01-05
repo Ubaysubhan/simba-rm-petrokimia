@@ -10,6 +10,8 @@ use App\Models\Dashboard;
 use Illuminate\Http\Response;
 // use Illuminate\Http\Request;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 
 class ProdukController extends Controller
 {
@@ -20,7 +22,7 @@ class ProdukController extends Controller
      */
     public function index(Request $request)
     {
-
+       
         return view('resource.produk');
 
     }
@@ -44,18 +46,24 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        $barang =new produk();
-    
-        $barang->tanggal= $request->input('date');
-        $barang->requester = $request->input('requester');
-        $barang->foto = $request->input('foto');
-      
-        $barang->deskripsi = $request->input('deskripsi');
-        $barang->barangmasuk = $request->input('barangmasuk');
-    
         
-        $barang->save();
-        return redirect('/');
+        $barang = new produk();
+
+        $barang->tanggal = $request->input('date');
+        $barang->requester = $request->input('requester');
+        $barang->deskripsi = $request->input('deskripsi');
+        $barang->barangawal = $request->input('barangmasuk');
+        $barang->barangsekarang = $request->input('barangmasuk');
+
+        if ($request->file('foto')) {
+            $value = $request->file('foto');
+            $filename = date('YmdHi') . "." . $value->getClientOriginalExtension();
+            $value->move(public_path('dist'), $filename);
+            $barang->foto = $filename;
+
+            $barang->save();
+            return redirect('/');
+        }
     }
 
     /**
@@ -102,4 +110,16 @@ class ProdukController extends Controller
     {
         // return redirect ('/produk');
     }
+
+    public function barangmasuk(produk $produk){
+       
+        return view ('resource.masuk')->with('produk', $produk);
+    }
+
+    public function barangkeluar(produk $produk){
+       
+        return view ('resource.keluar')->with('produk', $produk);
+    }
+
+
 }

@@ -13,5 +13,10 @@ class barangmasuk extends Model
         'tanggal',
         'requester',
        'jumlahbarang',
+      
     ];
+    public function produk()
+    {
+        return $this->belongsTo(produk::class,'id_product');
+    }
 }

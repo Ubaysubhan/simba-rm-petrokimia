@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barangmasuks', function (Blueprint $table) {
+        Schema::create('dashboard_admins', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_product')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
-            $table->string('tanggal');
-            $table->string('requester');
-            $table->integer('jumlahbarang');
-  
-
         });
     }
 
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barangmasuks');
+        Schema::dropIfExists('dashboard_admins');
     }
 };

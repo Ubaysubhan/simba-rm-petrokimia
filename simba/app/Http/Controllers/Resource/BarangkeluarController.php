@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Resource;
 
 use App\Models\barangkeluar;
+use App\Models\produk;
 use App\Http\Requests\StorebarangkeluarRequest;
 use App\Http\Requests\UpdatebarangkeluarRequest;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class BarangkeluarController extends Controller
      */
     public function index()
     {
-        return view('resource.keluar');
+     
     }
 
     /**
@@ -38,17 +39,31 @@ class BarangkeluarController extends Controller
     public function store(Request $request)
     {
       
+
         $barang =new barangkeluar();
-    
+        if($barang->jumlahbarang == null){
+        $barang->id_product = $request->id_barang;
         $barang->tanggal= $request->input('tanggal');
         $barang->requester = $request->input('requester');
         $barang->keperluan = $request->input('keperluan');
         $barang->provinsi = $request->input('provinsi');
         $barang->kotakab = $request->input('kotakab');
         $barang->jumlahbarang = $request->input('jumlahbarang');
+        $barang->jumlahbarangkeluar = $request->input('jumlahbarang');
         
+        $stuff = produk::where('id',$request->id_barang)->get()->first();
+        $jumlah = $stuff->barangsekarang - $request->jumlahbarang;
+
+        $data['barangsekarang'] = $jumlah;
+        produk::where('id', $request->id_barang)->update($data);
+
         $barang->save();
-        return redirect('/');
+        return redirect('/Admin');
+    }
+    else{
+            dd('test');
+    }
+
     }
 
     /**
