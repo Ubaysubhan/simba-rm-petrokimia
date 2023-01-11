@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('requester');
             $table->string('keperluan');
             $table->string('provinsi');
-            $table->string('kotakab');
+            $table->string('kabupaten');
             $table->string('jumlahbarang');
             $table->string('jumlahbarangkeluar');
         });

@@ -9,7 +9,16 @@
     @csrf
     <!-- {{ csrf_field() }} -->
 
-    <div>
+    <div> @if($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 mb-6 py-3 rounded relative" role="alert">
+            <strong class="font-bold">PERINGATAN</strong>
+            <span class="block sm:inline">Masih ada yang salah bro ,Coba di cek lagi</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+
+            </span>
+        </div>
+
+        @endif
         <div>
             <h1 class="text-2xl leading-6 font-medium text-gray-900">Produk Atau Barang baru yang masuk</h1>
 
@@ -28,7 +37,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <input datepicker name="date" type="text"
+                    <input datepicker name="date" type="text" value="{{old('date')}}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Select date">
                 </div>
@@ -43,6 +52,7 @@
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input type="text" name="requester" id="first-name" autocomplete="given-name"
+                            value="{{old('requester')}}"
                             class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
                 </div>
@@ -219,6 +229,7 @@
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-2">
                             <input type="text" name="deskripsi" id="first-name" autocomplete="given-name"
+                                value="{{old('deskripsi')}}"
                                 class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div>
@@ -231,6 +242,7 @@
                             </label>
                             <div class="mt-1 sm:mt-0 sm:col-span-2">
                                 <input type="text" name="barangmasuk" id="first-name" autocomplete="given-name"
+                                    value="{{old('barangmasuk')}}"
                                     class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>

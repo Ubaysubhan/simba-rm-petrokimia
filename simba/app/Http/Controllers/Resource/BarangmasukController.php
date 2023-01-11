@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Resource;
 
 use App\Http\Controllers\Controller;
 use App\Models\barangmasuk;
+use App\Models\distribusibarang;
 use App\Models\produk;
 use App\Http\Requests\StorebarangmasukRequest;
 use App\Http\Requests\UpdatebarangmasukRequest;
@@ -44,20 +45,41 @@ class BarangmasukController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+        'tanggal' => 'required|date',
+        'requester' => 'required',
+        'jumlahbarang' => 'required|numeric',
+
+
+    ]);
         $barang =new barangmasuk();
+        
         $barang->id_product = $request->id_barang;
 
         $barang->tanggal= $request->input('tanggal');
         $barang->requester = $request->input('requester');
         $barang->jumlahbarang = $request->input('jumlahbarang');
+      
 
         $stuff = produk::where('id',$request->id_barang)->get()->first();
         $jumlah = $stuff->barangsekarang + $request->jumlahbarang;
-
         $data['barangsekarang'] = $jumlah;
-        produk::where('id', $request->id_barang)->update($data);
         
+        $test = produk::where('id',$request->id_barang)->get()->first();
+        $count = $test->jumlahbarangmasuk + $request->jumlahbarang;
+        $data['jumlahbarangmasuk'] = $count;
+        produk::where('id', $request->id_barang)->update($data);
+
         $barang->save();
+   
+        $distri =new distribusibarang();
+        $distri->id_product = $request->id_barang;
+        $distri->tanggal= $request->input('tanggal');
+        $distri->requester = $request->input('requester');
+        $distri->jumlahbarang = $request->input('jumlahbarang');
+        $distri->status = 'barangmasuk';
+
+        $distri->save();
         return redirect('/Admin');
     }
 

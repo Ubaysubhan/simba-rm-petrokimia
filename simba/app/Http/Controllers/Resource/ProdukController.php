@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Resource;
 
-
+use App\Models\Province;
+use App\Models\Regency;
 use App\Models\produk;
+use App\Models\barangkeluar;
+use App\Models\barangmasuk;
+use App\Models\distribusibarang;
+
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Models\Dashboard;
@@ -46,6 +51,14 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'date' => 'required|date',
+            'requester' => 'required',
+            'deskripsi' => 'required',
+            'barangmasuk' => 'required|numeric',
+
+
+        ]);
         
         $barang = new produk();
 
@@ -54,6 +67,10 @@ class ProdukController extends Controller
         $barang->deskripsi = $request->input('deskripsi');
         $barang->barangawal = $request->input('barangmasuk');
         $barang->barangsekarang = $request->input('barangmasuk');
+        $barang->jumlahbarangmasuk = $request->input('barangmasuk');
+        $barang->jumlahbarangout = $request->input('barangmasuk');
+        $barang->jumlahbarangkeluar = 0 ;
+        
 
         if ($request->file('foto')) {
             $value = $request->file('foto');
@@ -62,7 +79,7 @@ class ProdukController extends Controller
             $barang->foto = $filename;
 
             $barang->save();
-            return redirect('/');
+            return redirect('/Admin');
         }
     }
 
@@ -117,9 +134,31 @@ class ProdukController extends Controller
     }
 
     public function barangkeluar(produk $produk){
+        $provinces = Province::all();
+        $regencies = Regency::all();
        
-        return view ('resource.keluar')->with('produk', $produk);
-    }
 
+        return view ('resource.keluar',
+        ['produk' => $produk,
+        'provinsi' => $provinces,
+    ]);
+    }
+    public function history(produk $produk){
+ 
+        $barang = produk::all();
+        $barangs = barangmasuk::where('id_product', $produk->id)->get();
+        $barangss = barangkeluar::where('id_product', $produk->id)->get();
+        $barangsss = produk::with(['barangmasuk','barangkeluar'])->where('id',$produk->id)
+        ->get();
+
+        $distribusi = distribusibarang::where('id_product', $produk->id)->orderBy('tanggal')->get();
+
+        return view('resource.history')->with('hd', $distribusi);
+    }
+    public function findKabupatenName(Request $request)
+    {
+        $data = Regency::select('name', 'id')->where('province_id', $request->id)->get();
+        return response()->json($data);
+    }
 
 }

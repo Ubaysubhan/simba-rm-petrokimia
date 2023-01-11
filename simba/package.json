@@ -5,6 +5,7 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.3",
         "autoprefixer": "^10.4.13",
         "axios": "^1.1.2",
@@ -15,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "flowbite": "^1.5.5"
+        "flowbite": "^1.5.5",
+        "tw-elements": "^1.0.0-alpha13"
     }
 }

@@ -61,7 +61,7 @@
                                     @if(count($value->barangmasuk)==0)
                                     {{$value->barangawal}}
                                     @else
-                                    {{$value->barangmasuk[0]->jumlahbarang}}
+                                    {{$value->jumlahbarangmasuk}}
                                     @endif
                                     <a href="/produk/{{$value->id}}"> <button type="button"
                                             class="ml-3 transition ease-in-out delay-150 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 duration-300 hover:scale-110 hover:-translate-y-1  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -78,7 +78,7 @@
                                     @if(count($value->barangkeluar)==0)
                                     -
                                     @else
-                                    {{$value->barangkeluar[0]->jumlahbarang}}
+                                    {{$value->barangkeluar->sum('jumlahbarang')}}
                                     @endif
                                     <a href="/produk/keluar/{{$value->id}}">
                                         <button type="button"
@@ -97,7 +97,8 @@
                                 </td>
                                 <td
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-sm font-medium sm:pr-6 text-center">
-                                    <a href="/history" class="text-indigo-600 hover:text-indigo-900">History<span
+                                    <a href="/history/{{$value->id}}"
+                                        class="text-indigo-600 hover:text-indigo-900">History<span
                                             class="sr-only"></span></a>
                                 </td>
                             </tr>

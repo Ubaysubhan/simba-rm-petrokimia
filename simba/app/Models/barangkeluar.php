@@ -14,9 +14,10 @@ class barangkeluar extends Model
         'requester',
        'keperluan',
        'provinsi',
-        'kotakab',
+        'kabupaten',
        'jumlahbarang',
        'jumlahbarangkeluar',
+       
     ];
     public function produk()
     {

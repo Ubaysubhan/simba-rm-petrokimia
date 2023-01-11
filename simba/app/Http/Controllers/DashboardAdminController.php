@@ -22,7 +22,8 @@ class DashboardAdminController extends Controller
     {
         
         $barang = produk::with(['barangmasuk','barangkeluar'])->get();
-    
+        
+        
         return view('resource.DashboardAdmin')->with('produk',$barang);
         
     }

@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Navigation</title>
+    <title>SIMBA | Retail Management PG</title>
     <link rel="stylesheet" href="./css/tailwind.css">
     @vite('resources/css/app.css')
+    <link href="{{ URL::asset('dist/terang.png') }}" rel="icon">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
 
 </head>
@@ -19,9 +20,8 @@
         <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
             <div class="mx-auto w-full max-w-sm lg:w-96">
                 <div>
-                    <img class="h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                        alt="Workflow">
-                    <h2 class="mt-6 text-3xl font-extrabold text-gray-900">S I M B A</h2>
+                    <img src="{{ URL::asset('dist/sims.png') }}" class="h-12 w-auto " alt="Workflow">
+                    <h2 class="mt-6 text-3xl font-extrabold text-gray-900">SIMBA</h2>
 
                 </div>
 
@@ -76,13 +76,19 @@
                                     class="w-full flex justify-center py-2 px-4 border  rounded-md shadow-sm text-sm font-medium text-white  bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 hover:from-amber-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--500">Sign
                                     in</button>
                             </div>
+
+                            <a href="/" class="py-6">
+                                <button type="button"
+                                    class="w-full flex justify-center py-2 px-4 border  rounded-md shadow-sm text-sm font-medium text-red-500  bg-gradient-to-r from-white via-white to-white  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring--500">Back
+                                    to Home</button>
+                            </a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="hidden lg:block relative w-0 flex-1">
-        <img class="absolute inset-0 min-h-full min-w-full object-cover" src="{{ URL::asset('dist/3.jpg') }}" alt="">
+        <img class="absolute inset-0 h-full min-w-full object-cover" src="{{ URL::asset('dist/tulus.jpg') }}" alt="">
     </div>
     </div>
 

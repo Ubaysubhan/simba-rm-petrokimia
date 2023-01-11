@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->integer('barangawal');
             $table->integer('barangsekarang');
+            $table->string('jumlahbarangmasuk');
+            $table->string('jumlahbarangout');
+            $table->string('jumlahbarangkeluar');
+
         });
        
     }

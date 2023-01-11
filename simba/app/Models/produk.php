@@ -19,6 +19,9 @@ class produk extends Model
       'barangsekarang',
         'deskripsi',
         'barangawal',
+        'jumlahbarangmasuk',
+        'jumlahbarangout',
+        'jumlahbarangkeluar',
     ];
     
     public function barangmasuk()
@@ -28,5 +31,9 @@ class produk extends Model
     public function barangkeluar()
     {
         return $this->hasMany(barangkeluar::class, 'id_product', 'id');
+    }
+    public function distribusibarang()
+    {
+        return $this->hasMany(distribusibarang::class, 'id_product', 'id');
     }
 }

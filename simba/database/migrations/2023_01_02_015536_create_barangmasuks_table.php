@@ -19,7 +19,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('tanggal');
             $table->string('requester');
-            $table->integer('jumlahbarang');
+            $table->string('jumlahbarang');
+    
   
 
         });
