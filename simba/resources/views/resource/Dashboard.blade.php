@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('container')
-<div class="bg-white">
-    <div class="max-w-7xl mt-24 mx-auto overflow-hidden sm:px-6 lg:px-8">
+<div class="bg-white md:bg-white">
+    <div class="max-w-7xl mt-0 md:mx-24 mx-auto overflow-hidden sm:px-6 lg:px-8 ">
         <h2 class="sr-only">sa</h2>
 
 
-        <div class="-mx-px border-l border-gray-200 grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
+        <div class="mx-px border-l border-gray-200 grid grid-cols-2 mt-12 md:mt-24  md:grid-cols-3 lg:grid-cols-4">
             @foreach($produk as $value)
             <div class="group relative p-4 border-r border-b border-gray-200 sm:p-6">
 
@@ -14,7 +14,7 @@
                         class="w-full h-full object-center object-cover">
                 </div>
 
-                <div class="pt-10 pb-4 text-center">
+                <div class="pt-0 md:pt-10 pb-4 text-center">
                     <h3 class="text-sm font-medium text-gray-900">
                         <a href="/history/{{$value->id}}">
                             <span aria-hidden="true" class="absolute inset-0"></span>

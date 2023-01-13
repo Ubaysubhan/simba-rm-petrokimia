@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="px-4 sm:px-6 lg:px-8 max-w-screen m-8 ">
+<div class="px-4 sm:px-6 bg-white  md:bg-white lg:px-8 max-w-screen m-8 ">
     <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-            <h1 class="text-4xl font-semibold text-gray-900 m-8">History Barang</h1>
+            <h1 class="text-4xl font-semibold sm:text-gray-900 m-8">History Barang</h1>
 
         </div>
     </div>
