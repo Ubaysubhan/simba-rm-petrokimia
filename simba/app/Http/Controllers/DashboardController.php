@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function index()
     {
         
-        $barang = produk::with(['barangmasuk','barangkeluar'])->get();
+        $barang = produk::with(['barangmasuk','barangkeluar'])->orderBy('deskripsi')->get();
     
         return view('resource.Dashboard')->with('produk',$barang);
         

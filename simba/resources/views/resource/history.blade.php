@@ -20,19 +20,19 @@
                                     Tanggal</th>
                                 <th scope="col"
                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
-                                    Keterangan</th>
+                                    Nama Barang</th>
                                 <th scope="col"
-                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">Jumlah
+                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
                                     Requester</th>
                                 <th scope="col"
-                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">Jumlah
+                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
                                     Keperluan</th>
                                 <th scope="col"
-                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">Jumlah
+                                    class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
                                     Kabupaten/Kota</th>
                                 <th scope="col"
                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">Jumlah
-                                    Jumlah Barang</th>
+                                    Barang</th>
                                 <th scope="col"
                                     class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 text-center">
                                     Status</th>
@@ -40,7 +40,42 @@
                             </tr>
                         </thead>
 
+                        @foreach ($test as $testing)
 
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <tr>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    {{$testing->tanggal}}</td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    {{$testing->deskripsi}}</td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    {{$testing->requester}}</td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+
+                                </td>
+
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    {{$testing->barangawal}}
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-500 text-center sm:pl-6">
+                                    Barang Masuk
+                                </td>
+                            </tr>
+                            @endforeach
+
+
+                            <!-- More people... -->
+                        </tbody>
                         @foreach ($hd as $haha)
 
                         <tbody class="divide-y divide-gray-200 bg-white">
@@ -63,10 +98,17 @@
                                 <td
                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
                                     {{$haha->kabupaten}}</td>
+
+                                @if($haha->status == 'barangmasuk')
                                 <td
-                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-500 text-center sm:pl-6">
                                     {{$haha->jumlahbarang}}</td>
 
+                                @else
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+                                    -{{$haha->jumlahbarang}}</td>
+                                @endif
                                 @if($haha->status == 'barangmasuk')
                                 <td
                                     class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-500 text-center sm:pl-6">
@@ -83,6 +125,53 @@
                                 @endif
                             </tr>
                             @endforeach
+
+
+                            <!-- More people... -->
+                        </tbody>
+
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            <tr>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+
+                                </td>
+                                <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 text-center sm:pl-6">
+                                    Total Barang
+                                </td>
+                                @foreach ($test as $testing)
+                                @if($testing->barangsekarang <= 0) <td
+                                    class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-red-500 text-center sm:pl-6">
+
+                                    {{$testing->barangsekarang}}
+                                    </td>
+                                    @else
+                                    <td
+                                        class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-green-500 text-center sm:pl-6">
+
+                                        {{$testing->barangsekarang}}
+                                    </td>
+                                    @endif
+                                    @endforeach
+
+
+                                    </td>
+
+                            </tr>
+
 
 
                             <!-- More people... -->

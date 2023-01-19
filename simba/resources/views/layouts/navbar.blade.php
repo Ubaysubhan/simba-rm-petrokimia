@@ -8,23 +8,15 @@
 				<div>
 					<!-- Website Logo -->
 					<a href="#" class="flex items-center py-4 px-2">
-						<img src="{{ URL::asset('dist/as.png') }}" class="h-12 w-28 ">
+						<img src="{{ URL::asset('dist/LOGO SIMBA.png') }}" class="h-12 w-28 ">
 						<!-- <span class="font-semibold text-green-500 text-lg">SIMBA</span> -->
 					</a>
 				</div>
 				<!-- Primary Navbar items -->
-				<ul
-					class="flex flex-col pt-7 pl-8 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-					<li>
-						<a href="/Admin"
-							class="block py-3 mt-1 pl-3 pr-4 text-yellow-400 bg-yellow-400 rounded md:bg-transparent md:text-yellow-400 md:p-0 dark:text-white"
-							aria-current="page">Home</a>
-					</li>
 
-				</ul>
 			</div>
 			<!-- Secondary Navbar items -->
-			<div class="hidden md:flex items-center space-x-3 ">
+			<div class=" md:flex items-center space-x-3 ">
 
 				<div class="relative inline-block text-left">
 					<div>
@@ -72,7 +64,7 @@
 					<div>
 						<!-- Website Logo -->
 						<a href="#" class="flex items-center py-4 px-2">
-							<img src="{{ URL::asset('dist/as.png') }}" class="h-12 w-28 ">
+							<img src="{{ URL::asset('dist/LOGO SIMBA.png') }}" class="h-auto w-28 ">
 							<!-- <span class="font-semibold text-green-500 text-lg">SIMBA</span> -->
 						</a>
 					</div>

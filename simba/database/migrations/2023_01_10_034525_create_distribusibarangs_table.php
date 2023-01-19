@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('kabupaten')->nullable();
             $table->string('jumlahbarang');
             $table->string('status');
+            
           
         });
     }

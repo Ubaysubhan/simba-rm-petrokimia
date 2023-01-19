@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
 
@@ -27,7 +28,7 @@
 
     @yield('container')
 
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
     @yield('script')
 
 </body>

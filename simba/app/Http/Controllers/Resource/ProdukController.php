@@ -81,8 +81,10 @@ class ProdukController extends Controller
             $barang->save();
             return redirect('/Admin');
         }
-    }
 
+    }
+   
+  
     /**
      * Display the specified resource.
      *
@@ -133,6 +135,8 @@ class ProdukController extends Controller
         return view ('resource.masuk')->with('produk', $produk);
     }
 
+ 
+
     public function barangkeluar(produk $produk){
         $provinces = Province::all();
         $regencies = Regency::all();
@@ -148,12 +152,14 @@ class ProdukController extends Controller
         $barang = produk::all();
         $barangs = barangmasuk::where('id_product', $produk->id)->get();
         $barangss = barangkeluar::where('id_product', $produk->id)->get();
-        $barangsss = produk::with(['barangmasuk','barangkeluar'])->where('id',$produk->id)
-        ->get();
+        $barangsss = produk::where('id',$produk->id)->get();
 
         $distribusi = distribusibarang::where('id_product', $produk->id)->orderBy('tanggal')->get();
 
-        return view('resource.history')->with('hd', $distribusi);
+        return view('resource.history',[
+            'hd' => $distribusi,
+            'test' => $barangsss,
+        ]);
     }
     public function findKabupatenName(Request $request)
     {
@@ -161,4 +167,16 @@ class ProdukController extends Controller
         return response()->json($data);
     }
 
+    public function hapus(produk $produk)
+    {
+        $barangsss = produk::where('id',$produk->id)->get();
+        $barangsss->each->delete();
+        return redirect('/Admin');
+    }
+
+    public function ganti(produk $produk)
+    { 
+        $barangsss = produk::where('id',$produk->id)->get();
+        return view('resource.edit')->with('produk',$barangsss);
+    }
 }

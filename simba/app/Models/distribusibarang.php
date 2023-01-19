@@ -18,7 +18,8 @@ class distribusibarang extends Model
         'provinsi',
         'kabupaten',
         'jumlahbarang',
-        'status',
+        'status', 
+      
       
     ];
     public function produk()

@@ -7,6 +7,7 @@ use App\Http\Controllers\Resource\loginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\Resource\ProdukController;
+use App\Http\Controllers\EditController;
 use App\Http\Controllers\HistoryController;
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,11 @@ Route::get('/', [DashboardController::class,'index'])->middleware('guest');
 // Route::get('/produk', [ProdukController::class,'index']);
 // Route::get('/produk',[ProdukController::class,'index'])->name('produk')->middleware('guest');
 Route::resource('/produk', ProdukController::class)->middleware('auth');
+Route::resource('/edit', EditController::class);
 route::get('/produk/{produk:id}', [ProdukController::class,'barangmasuk']);
 route::get('/produk/keluar/{produk:id}', [ProdukController::class,'barangkeluar']);
+route::get('/produk/delete/{produk:id}', [ProdukController::class,'hapus']);
+route::get('/produk/edit/{produk:id}', [ProdukController::class,'ganti']);
 Route::resource('/BarangMasuk', BarangmasukController::class);
 // Route::get('/total', [BarangmasukController::class,'total']);
 Route::resource('/BarangKeluar', BarangkeluarController::class);
